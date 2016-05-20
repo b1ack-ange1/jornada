@@ -6,59 +6,60 @@
   <packaging>war</packaging>
   <dependencies>
 
-<!-- http://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
-<dependency>
-    <groupId>org.mariadb.jdbc</groupId>
-    <artifactId>mariadb-java-client</artifactId>
-    <version>1.4.4</version>
-</dependency>
+		<!-- Mysql and MariaDB -->
+		 <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.21</version>
+		</dependency>
+
+
   
 <!-- 	  Hibernete -->
-	 <dependency>
-	    <groupId>org.hibernate</groupId>
-	    <artifactId>hibernate-core</artifactId>
-	    <version>5.1.0.Final</version>
-	</dependency>
+<!-- 	 <dependency> -->
+<!-- 	    <groupId>org.hibernate</groupId> -->
+<!-- 	    <artifactId>hibernate-core</artifactId> -->
+<!-- 	    <version>5.1.0.Final</version> -->
+<!-- 	</dependency> -->
 	
-	<!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
-	<dependency>
-	    <groupId>org.hibernate</groupId>
-	    <artifactId>hibernate-entitymanager</artifactId>
-	    <version>5.1.0.Final</version>
-	</dependency>
+<!-- 	<dependency> -->
+<!-- 	    <groupId>org.hibernate</groupId> -->
+<!-- 	    <artifactId>hibernate-entitymanager</artifactId> -->
+<!-- 	    <version>5.1.0.Final</version> -->
+<!-- 	</dependency> -->
 	
 	<!-- optional -->
 	
-	<dependency>
-	    <groupId>org.hibernate</groupId>
-	    <artifactId>hibernate-osgi</artifactId>
-	    <version>5.1.0.Final</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.hibernate</groupId>
-	    <artifactId>hibernate-envers</artifactId>
-	    <version>5.1.0.Final</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.hibernate</groupId>
-	    <artifactId>hibernate-c3p0</artifactId>
-	    <version>5.1.0.Final</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.hibernate</groupId>
-	    <artifactId>hibernate-proxool</artifactId>
-	    <version>5.1.0.Final</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.hibernate</groupId>
-	    <artifactId>hibernate-infinispan</artifactId>
-	    <version>5.1.0.Final</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.hibernate</groupId>
-	    <artifactId>hibernate-ehcache</artifactId>
-	    <version>5.1.0.Final</version>
-	</dependency>
+<!-- 	<dependency> -->
+<!-- 	    <groupId>org.hibernate</groupId> -->
+<!-- 	    <artifactId>hibernate-osgi</artifactId> -->
+<!-- 	    <version>5.1.0.Final</version> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 	    <groupId>org.hibernate</groupId> -->
+<!-- 	    <artifactId>hibernate-envers</artifactId> -->
+<!-- 	    <version>5.1.0.Final</version> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 	    <groupId>org.hibernate</groupId> -->
+<!-- 	    <artifactId>hibernate-c3p0</artifactId> -->
+<!-- 	    <version>5.1.0.Final</version> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 	    <groupId>org.hibernate</groupId> -->
+<!-- 	    <artifactId>hibernate-proxool</artifactId> -->
+<!-- 	    <version>5.1.0.Final</version> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 	    <groupId>org.hibernate</groupId> -->
+<!-- 	    <artifactId>hibernate-infinispan</artifactId> -->
+<!-- 	    <version>5.1.0.Final</version> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 	    <groupId>org.hibernate</groupId> -->
+<!-- 	    <artifactId>hibernate-ehcache</artifactId> -->
+<!-- 	    <version>5.1.0.Final</version> -->
+<!-- 	</dependency> -->
 
 <!-- Prime face -->
     <dependency>
