@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
+ 
     <persistence-unit name="jornada" transaction-type="RESOURCE_LOCAL">
+ 
+        <!-- Ao invés de utilizar o seguinte provider, como de costume: -->
+        <!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
+        <!-- Vamos usar o provider abaixo: -->
+<!--         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />
-            <property name="hibernate.connection.show_sql" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="update" />
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver " />
-            <property name="hibernate.connection.username" value="root" />
-            <property name="hibernate.connection.password" value="" />
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/jornada" />
-        </properties>
+        
+ 
+        <!-- Não se esqueça de informar ao persistence.xml qual datasource você estará usando, para isso siga o exemplo abaixo: -->
+        <jta-data-source>java:jboss/datasources/jornada-ds</jta-data-source>
+        <!-- Obs.: Caso seja necessário você rodar uma classe main para popular o banco de dados, remova a tag acima. -->
+ 
+        <class>br.com.jornada.modelo.Usuario</class>
+ 
+<!--         <properties> -->
+<!--             Uma vez que você está usando datasource não é necessário configurar novamente o acesso ao banco -->
+<!--             Coloquei aqui apenas como um exemplo -->
+<!--             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" /> -->
+<!--             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/jornada" /> -->
+<!--             <property name="javax.persistence.jdbc.user" value="root" /> -->
+<!--             <property name="javax.persistence.jdbc.password" value="" /> -->
+ 
+<!--             <property name="javax.persistence.validation.mode" value="none" /> -->
+ 
+<!--             <property name="hibernate.hbm2ddl.auto" value="update" /> -->
+<!--             <property name="hibernate.show_sql" value="true" /> -->
+<!--             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" /> -->
+<!--         </properties> -->
+			
+			 <properties>
+			        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			        <property name="hibernate.show_sql" value="true" />
+			        <property name="hibernate.format_sql" value="true" />
+			        <property name="hibernate.hbm2ddl.auto" value="update" />
+			    </properties>
     </persistence-unit>
 </persistence>
