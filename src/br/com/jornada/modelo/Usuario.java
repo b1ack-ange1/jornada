@@ -16,7 +16,7 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
-	
+	private String confirma_senha;
 	
 	public String getNome() {
 		return nome;
@@ -41,6 +41,12 @@ public class Usuario {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public String getConfirma_senha() {
+		return confirma_senha;
+	}
+	public void setConfirma_senha(String confirma_senha) {
+		this.confirma_senha = confirma_senha;
 	}
 
 }

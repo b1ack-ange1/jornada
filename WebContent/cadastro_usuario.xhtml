@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="subheader">
+        Page Header
+    </ui:define>
+    
+    <ui:define name="content">
+        
+        <div class="Container100">
+            <div class="ContainerIndent">
+                <div class="Card ShadowEffect TexAlCenter">
+                    <h:form>
+						<p:panel header="Cadastro de Usuário">
+						<h:panelGrid id="grid" columns="3" cellpadding="6">
+							
+							<p:outputLabel for="nome" value="Nome: "/>
+		       				<p:inputText id="nome" placeholder="Nome do usuário" required="true" validatorMessage="Digite um nome"/>
+		       				<p:message for="nome" display="text"/>
+		        			
+		        			<p:outputLabel for="email" value="E-mail: "/>
+		        			<p:inputText id="email" placeholder="email@exemplo.com.br" required="true" validatorMessage="Formato do e-mail email@exemplo.com"/>
+		        			<p:message for="email" display="text"/>
+		        			
+					        <h:outputLabel for="senha" value="Digite a senha: *" />
+					        <p:password id="senha" value="#{usuarioBean.usuario.senha}" match="senha_confirmacao" required="true" validatorMessage="As senhas não conferem" placeholder="Digite sua senha.."/>
+					        <p:message for="senha" display="text" />
+					        
+					        <h:outputLabel for="senha_confirmacao" value="Confirmar senha: *" />
+					        <p:password id="senha_confirmacao" value="#{usuarioBean.usuario.confirma_senha}" required="true"    validatorMessage="As senhas não conferem" placeholder="Confirme sua senha.."/>
+							<p:message for="senha_confirmacao" display="text" />
+		    			</h:panelGrid>
+						
+		            		<p:commandButton update="grid" value="Cadastrar"/>
+            			</p:panel>
+            		</h:form>
+					
+                    <br/><br/>
+                </div>
+            </div>
+        </div>
+        
+    </ui:define>
+
+</ui:composition>
