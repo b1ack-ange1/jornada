@@ -4,11 +4,8 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
     version="2.0">
  
-    <persistence-unit name="jornada" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="jornada" transaction-type="JTA">
  
-        <!-- Ao invés de utilizar o seguinte provider, como de costume: -->
-        <!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
-        <!-- Vamos usar o provider abaixo: -->
 <!--         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         

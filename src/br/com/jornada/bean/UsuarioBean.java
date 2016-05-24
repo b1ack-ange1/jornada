@@ -16,10 +16,9 @@ public class UsuarioBean {
 	private UsuarioDao dao;
 	
 	@Transactional
-	public String cadastrar(){
-		dao.adiciona(getUsuario());
-
-		return "cadastro_evento?faces-redirect=true";
+	public void cadastrar(){
+		this.dao.adiciona(usuario);
+		
 	}
 
 	public Usuario getUsuario() {

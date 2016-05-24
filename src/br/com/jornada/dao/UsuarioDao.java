@@ -15,7 +15,7 @@ public class UsuarioDao {
 	private EntityManager manager;
 	
 	public void adiciona(Usuario usuario) {
-		
+		manager.joinTransaction();
 		manager.persist(usuario);
 		
 	}
