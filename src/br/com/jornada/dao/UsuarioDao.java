@@ -1,12 +1,12 @@
 package br.com.jornada.dao;
 
 import java.io.Serializable;
-
+import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
-
+import javax.persistence.criteria.CriteriaQuery;
 import br.com.jornada.modelo.Usuario;
 
 @Named
@@ -29,5 +29,22 @@ public class UsuarioDao implements Serializable{
 		manager.persist(usuario);
 		
 	}
+	
+	public List<Usuario> listaTodos() {
+		
+		CriteriaQuery<Usuario> query = manager.getCriteriaBuilder().createQuery(Usuario.class);
+		query.select(query.from(Usuario.class));
+
+		List<Usuario> lista = manager.createQuery(query).getResultList();
+		
+		return lista; 
+	}
+
+	public Usuario buscaPorId(Long id) {
+
+		Usuario usuario = manager.find(Usuario.class, id);
+		return usuario;
+	}
+
 
 }
