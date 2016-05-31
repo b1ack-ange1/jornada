@@ -1,8 +1,6 @@
 package br.com.jornada.bean;
 
-import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -10,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.primefaces.model.LazyDataModel;
 
+import br.com.jornada.dao.DataModelUsuarios;
 import br.com.jornada.dao.UsuarioDao;
 import br.com.jornada.modelo.Usuario;
 
@@ -17,10 +16,16 @@ import br.com.jornada.modelo.Usuario;
 @RequestScoped
 public class UsuarioBean {
 
-	@Inject
-	private Usuario usuario;
-	private List<Usuario> usuarios;
 	
+	private Usuario usuario = new Usuario();
+	
+	
+	@Inject
+	private DataModelUsuarios dataModel;
+
+	public LazyDataModel<Usuario> getDataModel() {
+	    return dataModel;
+	}
 
 	@Inject
 	private UsuarioDao dao;
@@ -29,26 +34,13 @@ public class UsuarioBean {
 	public void cadastrar(){
 		this.dao.adiciona(usuario);
 		this.atualiza();
+		System.out.println("Cadastrado usuário");
 	}
 	
-	public List<Usuario> getUsuarios(){
-		if (usuarios == null) {
-			System.out.println("Carregando usuarios..");
-			atualizaTabela();
-		}
-		return this.usuarios;
-	}
-	
-	//Metódo para Atualizar/Buscar Lista
-	public void atualizaTabela() {
-		this.usuarios = dao.listaTodos();
-	}
 	
 	public void atualiza(){
 		this.usuario = new Usuario();
 	}
-
-	
 
 	public Usuario getUsuario() {
 		return usuario;

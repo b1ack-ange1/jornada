@@ -26,19 +26,23 @@ public class UsuarioDao implements Serializable{
 	private EntityManager manager;
 	
 	public void adiciona(Usuario usuario) {
+		manager.joinTransaction();
 		manager.persist(usuario);
+		System.out.println("persistiu");
 		
 	}
-	
-	public List<Usuario> listaTodos() {
-		
+	public int count() {
+		long result = (Long) manager.createQuery("select count(u) from Usuario u").getSingleResult();
+		return (int) result;
+	}
+
+	public List<Usuario> listaComPaginacao(int first, int max) {
 		CriteriaQuery<Usuario> query = manager.getCriteriaBuilder().createQuery(Usuario.class);
 		query.select(query.from(Usuario.class));
 
-		List<Usuario> lista = manager.createQuery(query).getResultList();
-		
-		return lista; 
+		return manager.createQuery(query).setFirstResult(first).setMaxResults(max).getResultList();
 	}
+	
 
 	public Usuario buscaPorId(Long id) {
 
